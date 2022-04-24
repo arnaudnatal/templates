@@ -1,0 +1,473 @@
+% *****************************************************************
+% Classic
+% *****************************************************************
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\let\CheckCommand\providecommand
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{geometry}  % margin
+\usepackage{setspace}  % spacing between lines
+\usepackage[toc,page]{appendix}  % appendix
+\usepackage{import}  % import other pdf
+
+
+% ********** Basic supplementray materials
+\usepackage{enumitem}  % custom list
+% \usepackage{hvfloat}  % rotation of caption
+\usepackage{kpfonts}  % change fonts
+\usepackage{lineno}  % line numerotation
+% \usepackage{rotating}  % allow complete rotation
+\usepackage{soul}  % strikethrough text
+\usepackage[normalem]{ulem}  % underline text
+\usepackage{xcolor}  % color 
+% **********
+
+
+% ********** Maths packages
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+% \usepackage{tikz}
+% **********
+
+
+% ********** Table packages
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{colortbl}  % color cells
+% \usepackage{longtable}
+\usepackage{siunitx}
+% \usepackage{tabu}
+% \usepackage{threeparttable} 
+% **********
+
+
+% ********** Icones packages
+\usepackage{fontawesome}
+\usepackage{orcidlink}
+\usepackage{tfrupee}
+% **********
+
+
+% ********** Define color + configuration
+\definecolor{NUred}{RGB}{213, 17, 45}
+\definecolor{NUblue}{RGB}{0, 59, 113}
+\definecolor{UBbrown}{RGB}{48, 33, 25}
+\definecolor{UBblue}{RGB}{0, 158, 214}
+\definecolor{ODRIISdarkgreen}{RGB}{80,151,68}
+\definecolor{ODRIISlightgreen}{RGB}{164,204,76}
+\definecolor{ODRIISbrick}{RGB}{197,102,63}
+\definecolor{lightgray}{HTML}{A9A9A9}
+\definecolor{lightgray2}{RGB}{113,113,113}
+% **********
+\hypersetup{colorlinks,linkcolor={black},citecolor={blue},urlcolor={blue}}
+% **********
+
+
+
+
+
+% *****************************************************************
+% Caption configuration
+% *****************************************************************
+\usepackage{caption}  % custom caption
+
+\captionsetup{
+font=small,
+skip=1em,
+labelfont={bf},
+justification=justified,
+singlelinecheck=false,
+%textfont={bf,it},
+%labelsep=endash,
+%tableposition=top,
+}
+
+
+
+
+
+% *****************************************************************
+% Bibliography
+% *****************************************************************
+
+% ********** Bibtex
+% \usepackage[doi, natbibapa]{apacite}
+% \bibliographystyle{apacite}
+
+% \bibliography{Ref_Arnaud.bib} % At the place where I want to print the bibliography
+% **********
+
+% ********** Biblatex
+\usepackage[
+natbib=true,
+backend=biber,
+style=apa,
+sorting=nyt
+]{biblatex}
+% **********
+
+
+% ********** To avoid accent issues
+\DeclareUnicodeCharacter{0301}{*************************************}
+
+
+
+
+% *****************************************************************
+% Date configuration
+% *****************************************************************
+\usepackage{datetime2}
+
+\makeatletter
+\newcommand{\monthyeardate}{%
+  \DTMenglishmonthname{\@dtm@month}, \@dtm@year
+}
+\makeatother
+
+
+
+
+% *****************************************************************
+% Bigcenter
+% *****************************************************************
+\makeatletter
+\newskip\@bigflushglue \@bigflushglue = -100pt plus 1fil
+\def\bigcenter{\trivlist \bigcentering\item\relax}
+\def\bigcentering{\let\\\@centercr\rightskip\@bigflushglue%
+\leftskip\@bigflushglue
+\parindent\z@\parfillskip\z@skip}
+\def\endbigcenter{\endtrivlist}
+\makeatother
+
+
+
+
+% *****************************************************************
+% Sectioning customisation
+% *****************************************************************
+% \usepackage[explicit, clearempty]{titlesec}
+
+% ********** Format
+%% \titleformat{level of section}[block]{format of title}{\the level of section + format of label}{0.5cm}{#1}
+
+% \titleformat{\section}[block]{\sffamily\bfseries\LARGE\titlerule[1pt]}{\sffamily\bfseries\LARGE\arabic{section}}{0.5cm}{#1}	
+% \titleformat{\subsection}{\sffamily\bfseries\Large}{\thesubsection}{0.4cm}{#1}
+% \titleformat{\subsubsection}{\sffamily\bfseries\large}{\thesubsubsection}{0.4cm}{#1}
+% **********
+
+
+% ********** Spacing
+%% \titlespacing{level of section}{left space}{vertical space before title}{vertical space after title}{right space}
+
+% \titlespacing{\section}{0cm}{3em}{1em}%{0cm}
+% \titlespacing{\subsection}{1cm}{2em}{1ex}
+% \titlespacing{\subsubsection}{2cm}{2em}{1ex}
+% **********
+
+
+
+
+
+
+% *****************************************************************
+% Header and footer customisation
+% *****************************************************************
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+
+% ********** Classic
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage ~-- \pageref{LastPage}}
+% **********
+
+
+% ********** Remove rule
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% **********
+
+
+% ********** Header
+\fancyhead[L]{}
+\fancyhead[R]{}
+% **********
+
+
+
+
+
+
+
+% *****************************************************************
+% Supplementary customisation
+% *****************************************************************
+
+% ********** Code lines
+% \usepackage{listings}
+% \lstset{ 
+% basicstyle=\scriptsize\ttfamily,
+% breaklines=true,
+% keywordstyle=\bf \color{blue},
+% commentstyle=\color[gray]{0.5},
+% stringstyle=\color{red},
+% showstringspaces=false,
+% numbers=left,
+% numberstyle=\tiny \bf \color{blue},
+% stepnumber=1,
+% numbersep=10pt,
+% firstnumber=1,
+% numberfirstline=true,
+% frame=leftline,
+% xleftmargin=0.5cm
+% }
+% **********
+
+
+% ********** Creation of theorem
+% \usepackage{ntheorem}
+% \theoremseparator{:}
+% \newtheorem{hyp}{Hypothesis}
+% **********
+
+
+% ********** Box using tcolorbox
+% \usepackage[most]{tcolorbox}
+% \newtcolorbox{greenbox}[2][]{colback=lightgreen!10,colframe=lightgreen!10,coltitle=black,colbacktitle=darkgreen!20,title={#2},#1}
+% \newtcolorbox{brickbox}[1][]{colback=brick!10,colframe=brick!10,#1}
+% **********
+
+
+% ********** Box using tikz
+% \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+% \newcommand{\titlebox}[2]{%
+% \tikzstyle{titlebox}=[rectangle,inner sep=10pt,inner ysep=10pt,draw]%
+% \tikzstyle{title}=[fill=white]%
+
+% \bigskip\noindent
+% \begin{tikzpicture}
+% \node[titlebox] (box){\begin{minipage}{0.94\textwidth}#2\end{minipage}};\node[title] at (box.north) {#1};
+% \end{tikzpicture}
+% \bigskip
+% **********
+
+
+
+
+
+
+% *****************************************************************
+% Title page style
+% *****************************************************************
+
+% ********** Style titlepage
+\usepackage{titling}
+\setlength{\droptitle}{-2cm}
+\pretitle{\begin{center}\fontsize{24pt}{10pt}\selectfont\bfseries}
+\posttitle{\par\end{center}\vskip 1ex}
+% **********
+
+
+% ********** header
+\newcommand{\coverheaderL}[3]{
+\setlength{\headheight}{24pt}
+\fancyhead[L]{
+\begin{tabular}[t]{@{}l@{}}
+\textcolor{#3}{\texttt{\footnotesize{#1}}} \\ \textcolor{#3}{\texttt{\footnotesize{#2}}}
+\end{tabular}}
+}
+% **********
+
+
+% ********** Authors
+\usepackage{authblk}
+\renewcommand\Affilfont{\small\itshape}
+% **********
+
+
+% ********** Email
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+% **********
+
+% ********** Abstract
+\newenvironment{abstr}{%
+\vspace*{-1cm}
+\begin{singlespacing}
+\begin{small}
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{1.5cm}% % change values for left margin
+\setlength{\rightmargin}{1.5cm}%  % change values for right margin
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]
+}
+{\end{list}\end{small}\end{singlespacing}}
+% **********
+
+
+% ********** Keywords
+\newenvironment{keywords}{%
+\vspace*{-0.3cm}
+\begin{singlespacing}
+\begin{small}
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{1.5cm}%
+\setlength{\rightmargin}{1.5cm}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]
+\noindent
+\textbf{Keywords:~}
+}
+{\end{list}\end{small}\end{singlespacing}}
+% **********
+
+
+% ********** JEL Codes
+\newenvironment{jelcodes}{%
+\vspace*{-0.3cm}
+\begin{singlespacing}
+\begin{small}
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{1.5cm}%
+\setlength{\rightmargin}{1.5cm}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]
+\noindent
+\textbf{JEL Codes:~}
+}
+{\end{list}\end{small}\end{singlespacing}}
+% **********
+
+
+
+
+
+
+
+
+% *****************************************************************
+% Tables
+% *****************************************************************
+
+% ********** Text size
+\let\oldtabular=\tabular
+\def\tabular{\small\oldtabular}
+% ********** 
+
+
+% ********** Stars
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+% **********
+
+
+% ********** Insert the table
+\newcommand{\inserttable}[3]{
+\resizebox{#3}{!}{
+\begin{tabular}{#2}
+\toprule
+\input #1
+\bottomrule
+\end{tabular}
+}
+}
+% **********
+
+
+% ********** Source
+\newcommand{\bottomtext}[1]{\vspace{-1.5ex}\captionsetup{justification=justified,font=footnotesize,singlelinecheck=false}\caption*{\hangindent=1.5em #1}}
+\newcommand{\bottomnote}[1]{\bottomtext{\textit{Note}:~#1}}
+\newcommand{\source}[1]{\bottomtext{\textit{Source}:~#1}}
+\newcommand{\starnote}{\bottomtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard error in parentheses.}}
+% **********
+
+
+% ********** siunitx config
+\sisetup{
+detect-mode,
+tight-spacing= true,
+group-digits= false ,
+input-signs= ,
+input-symbols= ( ) [ ] - + *,
+input-open-uncertainty=,
+input-close-uncertainty=,
+table-align-text-post=false
+}
+% **********
+
+
+% ********** Linebreak in cell
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+% **********
+
+
+% \makeatletter
+% \AddToHook{env/tabular/begin}{\let\input\@@input}
+% \makeatother
+
+
+
+
+
+
+
+
+% *****************************************************************
+% Personnal cmd
+% *****************************************************************
+\newcommand{\jati}[1]{\textit{j\={a}ti{#1}}}
+
+\newcommand\dev[1]{\textbf{\textcolor{red}{#1}}}
+
+\newcommand{\ie}{i.e.}
+\newcommand{\sd}{standard deviation}
+\newcommand{\pp}{percentage points}
+\newcommand{\aebe}{all else being equal}
+\newcommand{\Aebe}{All else being equal}
+\newcommand{\ote}{other things equal}
+\newcommand{\Ote}{Other things equal}
+\newcommand{\cl}{confidence level}
+\newcommand{\lit}{\dev{literature}}
+\newcommand{\PTCS}{PT\&CS}
+
+\newcommand{\key}[1]{\underline{\textsc{#1}}}
+\newcommand{\data}[1]{\textbf{\underline{Data #1:}}~}
+
+
+% ********** Figure and table around
+\newcommand\figaround[1]{%
+\begin{center}
+\textbf{[Figure \ref{#1} around here]}
+\end{center}
+}%
+
+\newcommand\tabaround[1]{%
+\begin{center}
+\textbf{[Table \ref{#1} around here]}
+\end{center}
+}%
+% **********
+
+
+% ********** Symbol shortcuts
+\def\@fnsymbol#1{\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or
+   \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger
+   \or \ddagger\ddagger \else\@ctrerr\fi}}
+   
+\makeatletter
+\newcommand{\ssymbol}[1]{^{\@fnsymbol{#1}}}
+\makeatother
+% **********

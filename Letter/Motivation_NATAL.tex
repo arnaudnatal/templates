@@ -1,0 +1,109 @@
+% arara: xelatex
+% arara: clean: {extensions: [ aux, out, log ]}
+
+
+\documentclass[a4paper,12pt,french]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[xetex]{hyperref}
+
+
+% ----- Fonts
+\usepackage{AlegreyaSans}
+\setmainfont{Alegreya Sans}
+
+
+% ----- Colors
+\usepackage{xcolor}
+\definecolor{DGreenneemsis}{RGB}{80,151,68}
+\definecolor{LGreenneemsis}{RGB}{164,204,76}
+\definecolor{Brickneemsis}{RGB}{197,102,63}
+\hypersetup{colorlinks,urlcolor={DGreenneemsis}}
+
+
+% ----- Margin
+\usepackage[left=3.5cm, right=3.5cm, top=1cm, bottom=0cm]{geometry}
+
+
+% ----- Space
+\usepackage{setspace}
+\setstretch{1}
+
+
+% ----- Display options
+\KOMAoptions{%
+fromalign=left, % alignment of the address
+fromphone=false, %         print sender phone number 
+fromemail=false, %  print sender e-mail address  
+fromlogo=false, %         print a logo (position depends on fromalign)
+backaddress=false, % remove address in line above the receiver
+firstfoot=false  % reduce margin size footer
+}
+
+\setkomavar{emailseparator}{~:~} 
+\setkomavar{enclseparator}{ > } 
+\setkomavar{phoneseparator}{~:~} 
+\setkomavar{subjectseparator}{ >>> } 
+
+
+
+% ----- Sender details
+\setkomavar{fromname}{\href{https://arnaudnatal.github.io}{\textcolor{DGreenneemsis}{Arnaud \textsc{Natal}}}}
+\setkomavar{fromaddress}{29 rue de l'épargne, appt 16 \\
+40100, \textsc{Dax, France}}
+\setkomavar{fromphone}{+33.6.64.42.40.96}
+\setkomavar{fromemail}{\href{mailto:arnaud.natal@u-bordeaux.fr}{\textcolor{Brickneemsis}{arnaud.natal@u-bordeaux.fr}}} 
+
+
+% ----- French norms
+\LoadLetterOption{NF}  % receiver right align
+
+\setkomavar{firsthead}{%   % date above receiver
+  \begin{tabular}[t]{l@{}}%
+    \usekomavar{fromname}\\
+	\usekomavar{fromaddress}\\
+    \usekomavar*{fromphone}\usekomavar{fromphone}\\
+    \usekomavar*{fromemail}\usekomavar{fromemail}
+  \end{tabular}
+  \hfill
+  \normalsize
+  À \textsc{Dax}, le \today
+}
+
+%\setkomavar{place}{Dax}   % for english norms, inverse % and % the above paragraph
+%\setkomavar{date}{le \today}
+\date{}
+
+
+
+
+% ----- Object
+\setkomavar{subject}{Objet : Candidature pour l'appui à la création d'un observatoire pluridisciplinaire des dynamiques rurales en Inde.}
+
+
+
+
+%********** Documents
+\begin{document}
+
+\begin{letter}{Mme \textsc{Lecubin} Isabelle, \\ Mme \textsc{Guérin} Isabelle, \\ M. \textsc{Nordman} Christophe Jalil,}
+
+\opening{Mesdames, Monsieur,}
+
+Actuellement en troisième année de \href{https://www.bse.u-bordeaux.fr/membres/arnaud-natal/}{doctorat en économie du développement} à l'Université de Bordeaux, je suis candidat pour le poste de volontaire international en appui à la création d'un observatoire pluridisciplinaire des dynamiques rurales en Inde du Sud (ODRIIS), à compter de septembre 2022 et jusqu'à septembre 2023.
+
+Le stage de recherche que j'ai réalisé à l'Institut Français de Pondichéry en 2019 m'a permis de découvrir l'observatoire ODRIIS.
+J'ai eu l'occasion, entre autres, de travailler sur l'endettement des ménages avec les bases de données RUME (2010) et NEEMSIS-1 (2016-17) donnant lieu à une \href{https://www.researchgate.net/publication/357617209_Surviving_Debt_and_Survival_Debt_in_Times_of_Lockdown}{publication scientifique}.
+Cette première expérience à l'observatoire m'a permis de renforcer mon expérience de terrain, de développer ma capacité d'adaptation grâce aux divers échanges avec les chercheurs locaux et de faire valoir mes capacités d'autonomie et d'organisation en réalisant un mémoire de recherche.
+
+Depuis ce stage, j'affine ma connaissance des outils de l'observatoire et du milieu rurale tamoul, dans le cadre de mon doctorat, co-dirigé par Monsieur \textsc{Nordman} Christophe Jalil, portant sur la vulnérabilité des ménages.
+\href{https://neemsis.hypotheses.org/team/arnaud-natal}{Membre de l'équipe de recherche} de l'ODRIIS, j'ai su montrer ma grande conscienciosité en étant en charge du \href{https://neemsis.hypotheses.org/ressources/statistical-report}{rapport d'enquête NEEMSIS-1}, ainsi que mes capacités techniques en étant en charge de l'apurement et des premières analyses des données NEEMSIS-2.
+
+Enfin, et de manière plus générale, je suis prêt à mettre en œuvre tout mon dynamisme, ma réactivité, ma rigueur et ma bonne humeur afin de vous satisfaire dans les tâches qui me seront confiées.
+
+
+\closing{Dans l'attente d'une réponse de votre part, je vous prie d'agréer, Mesdames, Monsieur, l'expression de mes sentiments distingués.}
+\end{letter}
+
+\end{document}

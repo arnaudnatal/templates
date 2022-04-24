@@ -1,0 +1,180 @@
+% pandoc -s Data_paper.tex --citeproc -o Data_paper.docx
+
+\documentclass[a4paper, 12pt, onecolumn]{article} 
+
+% arara: pdflatex 
+% arara: biber
+% arara: pdflatex
+% arara: pdflatex
+% arara: clean: {extensions: [aux, bbl, out, toc, blg, thm, log, bcf, xml]}
+
+
+% ********** Macro
+\input{Preamble}
+
+
+% ********** Bibliography
+\addbibresource{Ref.bib}
+% ********** 
+
+
+
+% ********** Margins
+\setstretch{1.5}
+\geometry{%
+a4paper,
+left=2.5cm,
+right=2.5cm,
+top=2.5cm,
+bottom=2.5cm,
+}%
+% ********** 
+
+
+
+% ********** Cover page
+\fancypagestyle{coverpage}{
+\coverheaderL{ODRIIS Working Paper}{Preliminary draft, please do not circulate.}{lightgray}
+}
+
+\title{Labour, Debt and Networks datasets in Rural South India}
+
+\author[a,b,c]{Isabelle Guérin}
+\author[a,b,d]{Christophe J. Nordman}
+\author[b,e]{Sébastien Michiels}
+\author[b]{Govindan Venkatasubramanian}
+\author[d]{Mary Di Santolo}
+\author[c]{Cécile Mouchel}
+\author[,f]{Arnaud Natal\orcidlink{0000-0003-1301-2281}\thanks{Corresponding author: \email{arnaud.natal@u-bordeaux.fr}}}
+
+
+\affil[a]{French National Research Institute for Sustainable Development (IRD), \textsc{France}}
+\affil[b]{French Institute of Pondicherry, \textsc{India}}
+\affil[c]{CESSMA, University of Paris, IRD, INALCO, \textsc{France}}
+\affil[d]{LEDa-DIAL, PSL University, \textsc{France}}
+\affil[e]{CNRS, CREST, \textsc{France}}
+\affil[f]{University of Bordeaux, CNRS, BSE, UMR 6060, \textsc{France}}
+
+
+\date{\normalsize
+First draft:  \monthyeardate \\
+This version: \monthyeardate}
+% ********** 
+
+
+
+
+
+% ******************************************************************
+\begin{document}
+
+\begin{singlespacing}
+\maketitle
+\thispagestyle{coverpage}
+\end{singlespacing}
+
+\begin{abstr}
+An abstract
+\end{abstr}
+
+\begin{keywords}
+
+\end{keywords}
+
+\begin{jelcodes}
+
+\end{jelcodes}
+
+
+
+
+
+%\begin{linenumbers}
+
+%\end{linenumbers}
+
+% ******************************
+\section{Introduction}
+\label{Introduction}
+% ******************************
+
+A citation \citep{Michiels2021}.
+
+Three equations.
+\begin{align}
+\label{eq:reg2} Y_{i} & = \beta_{0}+PTCS'_{i}*\beta_{1}+X'_{i}*\beta_{2}+PTCS'_{i}*Sex_{i}*\beta_{3}+\epsilon_i  \\ 
+\label{eq:reg3} Y_{i} & = \beta_{0}+PTCS'_{i}*\beta_{1}+X'_{i}*\beta_{2}+PTCS'_{i}*Caste_{i}*\beta_{3}+\epsilon_i  \\ 
+\label{eq:reg4} Y_{i} & = \beta_{0}+PTCS'_{i}*\beta_{1}+X'_{i}*\beta_{2}+PTCS'_{i}*Sex_{i}*Caste_{i}*\beta_{3}+\epsilon_i 
+\end{align}
+
+A figure around here?
+\figaround{}
+
+
+
+%\clearpage
+%\newpage
+% ******************************
+\section*{References}
+\addcontentsline{toc}{section}{References}
+% ******************************
+\begin{singlespacing}
+\printbibliography[title={References},heading=none] %bibintoc for section
+\end{singlespacing}
+
+
+
+
+
+
+\clearpage
+\newpage
+% ***********************************
+\section*{Tables and figures}
+\addcontentsline{toc}{section}{Tables and figures}
+% ***********************************
+
+
+% \begin{figure}[h]
+% \raggedright
+% \includegraphics[width=\columnwidth]{INPUT/Kernel_PTCS}
+% \caption{Distribution of \PTCS~ -- The resulting \PTCS~ are based on the standardised residual from univariate OLS regression with age as exogenous variable. This is \PTCS~ purged from life-cycle effects.}
+% \source{NEEMSIS-1 (2016-17); author's calculations.}
+% \label{fig:PTCS}
+% \end{figure}
+
+
+
+% \begin{table}[htpb]
+% \raggedright
+% \caption{Marginal effects from the multivariate probit analysis of the probability of being in debt.}
+% \inserttable{INPUT/ame_indebt.tex}{lcccccccccccc}{\columnwidth}
+% \starnote
+% \source{NEEMSIS-1 (2016-17) \& NEEMSIS-2 (2020-21); author's calculations.}
+% \label{tab:ame_indebt}
+% \end{table}
+
+
+
+
+
+\clearpage
+\newpage
+% ***********************************
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+% ***********************************
+
+
+
+
+\clearpage
+\newpage
+% ***********************************
+\begin{singlespacing}
+\setcounter{tocdepth}3
+\tableofcontents
+\end{singlespacing}
+% ***********************************
+
+\end{document}
