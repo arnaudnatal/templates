@@ -1,0 +1,1 @@
+pandoc -s %~n0.tex --citeproc --csl="https://raw.githubusercontent.com/arnaudnatal/panbat/main/apa-6th-edition.csl" --reference-doc reference.docx -o %~n0.docx
