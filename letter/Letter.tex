@@ -1,0 +1,98 @@
+% arara: xelatex
+% arara: clean: {extensions: [ aux, out, log ]}
+
+
+\documentclass[a4paper,12pt,french]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[xetex]{hyperref}
+
+
+% ----- Fonts
+\usepackage{AlegreyaSans}
+\setmainfont{Alegreya Sans}
+
+
+% ----- Colors
+\usepackage{xcolor}
+\definecolor{DGreenneemsis}{RGB}{80,151,68}
+\definecolor{LGreenneemsis}{RGB}{164,204,76}
+\definecolor{Brickneemsis}{RGB}{197,102,63}
+\hypersetup{colorlinks,urlcolor={DGreenneemsis}}
+
+
+% ----- Margin
+\usepackage[left=3.5cm, right=3.5cm, top=1cm, bottom=0cm]{geometry}
+
+
+% ----- Space
+\usepackage{setspace}
+\setstretch{1}
+
+
+% ----- Display options
+\KOMAoptions{%
+fromalign=left, % alignment of the address
+fromphone=false, %         print sender phone number 
+fromemail=false, %  print sender e-mail address  
+fromlogo=false, %         print a logo (position depends on fromalign)
+backaddress=false, % remove address in line above the receiver
+firstfoot=false  % reduce margin size footer
+}
+
+\setkomavar{emailseparator}{~:~} 
+\setkomavar{enclseparator}{ > } 
+\setkomavar{phoneseparator}{~:~} 
+\setkomavar{subjectseparator}{ >>> } 
+
+
+
+% ----- Sender details
+\setkomavar{fromname}{\href{https://arnaudnatal.github.io}{\textcolor{DGreenneemsis}{Truc \textsc{Dupont}}}}
+\setkomavar{fromaddress}{Adress}
+\setkomavar{fromphone}{Phone}
+\setkomavar{fromemail}{\href{mailto:truc.dupont@mail.fr}{\textcolor{Brickneemsis}{truc.dupont@mail.fr}}} 
+
+
+% ----- French norms
+\LoadLetterOption{NF}  % receiver right align
+
+\setkomavar{firsthead}{%   % date above receiver
+  \begin{tabular}[t]{l@{}}%
+    \usekomavar{fromname}\\
+	\usekomavar{fromaddress}\\
+    \usekomavar*{fromphone}\usekomavar{fromphone}\\
+    \usekomavar*{fromemail}\usekomavar{fromemail}
+  \end{tabular}
+  \hfill
+  \normalsize
+  À \textsc{Paris}, le \today
+}
+
+%\setkomavar{place}{Paris}   % for english norms, inverse % and % the above paragraph
+%\setkomavar{date}{le \today}
+\date{}
+
+
+
+
+% ----- Object
+\setkomavar{subject}{Objet : Blablabla.}
+
+
+
+
+%********** Documents
+\begin{document}
+
+\begin{letter}{Mme \textsc{Dupont} Isabelle,}
+
+\opening{Mesdames, Monsieur,}
+
+Blablabla
+
+\closing{Dans l'attente d'une réponse de votre part, je vous prie d'agréer, Mesdames, Monsieur, l'expression de mes sentiments distingués.}
+\end{letter}
+
+\end{document}
