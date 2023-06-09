@@ -15,7 +15,9 @@
 
 % ********** Basic supplementray materials
 \usepackage{enumitem}  % custom list
+% \usepackage{hvfloat}  % rotation of caption
 \usepackage{kpfonts}  % change fonts
+% \usepackage{rotating}  % allow complete rotation
 \usepackage{soul}  % strikethrough text
 \usepackage[normalem]{ulem}  % underline text
 \usepackage{xcolor}  % color 
@@ -39,6 +41,7 @@
 \usepackage[flushleft, para]{threeparttable}
 \usepackage{threeparttablex}
 % **********
+
 
 
 % ********** Icones packages
@@ -74,7 +77,7 @@
 % *****************************************************************
 \usepackage{caption}  % custom caption
 \captionsetup{
-font=footnotesize,
+font=small,
 skip=1em,
 labelfont={bf},
 justification=centering,
@@ -92,7 +95,6 @@ justification=centering,
 % *****************************************************************
 % Bibliography
 % *****************************************************************
-
 
 % ********** Biblatex
 \usepackage[
@@ -124,6 +126,12 @@ sorting=nyt
 
 
 
+
+
+
+
+
+
 % *****************************************************************
 % Header and footer customisation
 % *****************************************************************
@@ -147,8 +155,6 @@ sorting=nyt
 \fancyhead[L]{}
 \fancyhead[R]{}
 % **********
-
-
 
 
 
@@ -217,22 +223,22 @@ table-align-text-post=false
 
 
 % ********** Insert figures
-\newcommand{\insertfigure}[5]{
-\begin{figure}
+\newcommand{\insertfigure}[6]{
+\begin{figure}[htpb]
 \sbox0{\includegraphics[width={#2}]{#1}}
 \centering
 \begin{minipage}{\wd0}
   \usebox0
   \caption{#3}
+  \label{#4}
   \begin{footnotesize}
-  #4 \\
-  #5 
+  #5 \\
+  #6 
   \end{footnotesize}
 \end{minipage}
 \end{figure}
 }
 % **********
-
 
 
 
@@ -249,6 +255,7 @@ table-align-text-post=false
 
 \newcommand\dev[1]{\textbf{\textcolor{red}{#1}}}
 
+\newcommand{\ie}{i.e.}
 \newcommand{\sd}{standard deviation}
 \newcommand{\pp}{percentage points}
 \newcommand{\aebe}{all else being equal}
@@ -256,25 +263,11 @@ table-align-text-post=false
 \newcommand{\ote}{other things equal}
 \newcommand{\Ote}{Other things equal}
 \newcommand{\cl}{confidence level}
+\newcommand{\lit}{\dev{literature}}
+\newcommand{\PTCS}{PT\&CS}
 
-
-
-% ********** Correction of howframe of geometry
-\makeatletter
-\newcommand*{\gmshow@textheight}{\textheight}
-\newdimen\gmshow@@textheight
-\g@addto@macro\landscape{%
-  \gmshow@@textheight=\hsize
-  \renewcommand*{\gmshow@textheight}{\gmshow@@textheight}%
-}
-\def\Gm@vrule{%
-  \vrule width 0.2pt height\gmshow@textheight depth\z@
-}%
-\makeatother
-% **********
-
-
-
+\newcommand{\key}[1]{\underline{\textsc{#1}}}
+\newcommand{\data}[1]{\textbf{\underline{Data #1:}}~}
 
 
 % ********** Figure and table around
@@ -290,9 +283,6 @@ table-align-text-post=false
 \end{center}
 }%
 % **********
-
-
-
 
 
 % ********** Symbol shortcuts
